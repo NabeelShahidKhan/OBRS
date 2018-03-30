@@ -1,0 +1,11 @@
+﻿body {
+    background-image: url('../asserts/backPaper.jpg');
+}
+
+
+
+
+a.CalanderStyle:link {text-decoration: none;}
+a.CalanderStyle:visited {text-decoration: none;}
+a.CalanderStyle:hover {text-decoration: none;}
+a.CalanderStyle:active {text-decoration: none;}
