@@ -111,6 +111,7 @@
   <ItemGroup>
     <Content Include="css\CalanderStyle.css" />
     <Content Include="DateSelection.aspx" />
+    <Content Include="ReservationForm.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.min.js" />
@@ -126,6 +127,13 @@
       <DependentUpon>DateSelection.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservationForm.aspx.cs">
+      <DependentUpon>ReservationForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReservationForm.aspx.designer.cs">
+      <DependentUpon>ReservationForm.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

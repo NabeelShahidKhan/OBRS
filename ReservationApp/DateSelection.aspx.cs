@@ -14,23 +14,29 @@ namespace ReservationApp
 
         DataSet DataSetReserved = new DataSet();
         DateTime selectedDate;
-
+        char eventTime;
         SqlConnection con;
+        DateTime month;
         SqlCommand cmd;
         SqlConnectionStringBuilder conStringBuilber;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            selectedDate = EventCalander.TodaysDate;
-            getDatesfromDB();
-            LabelSelectedDate.Text = EventCalander.TodaysDate.ToShortDateString();
-          
+             if(!IsPostBack) {
+                selectedDate = EventCalander.TodaysDate;
+                eventTime = 'n';
+                DataSetReserved.Clear();
+                getDatesfromDB();
+                LabelSelectedDate.Text = EventCalander.TodaysDate.ToShortDateString();
+            }else {
+                selectedDate = EventCalander.SelectedDate;
+                getDatesfromDB();
+
+            }
+
         }
 
-        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
-        {
-
-        }
+     
         /*
         private void chackSelectedDate()
         {
@@ -48,7 +54,7 @@ namespace ReservationApp
             using (SqlConnection con = new SqlConnection("Data Source =.; Initial Catalog = BRsystemDb; Integrated Security = True"))
             {
                 con.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("Select * From reservation", con);
+                SqlDataAdapter adapter = new SqlDataAdapter("Select * From reservation where Time='"+eventTime+"'", con);
                 adapter.Fill(DataSetReserved);
             }
 
@@ -58,7 +64,7 @@ namespace ReservationApp
         //calande.SelectedDate.DayOfWeek;
         //calande.SelectedDate.Month;
         //calande.SelectedDate.Year;
-       
+
         //protected void Calendar_SelectionChanged(object sender, EventArgs e)
         //{
         //    selectedDate = EventCalander.SelectedDate;
@@ -68,41 +74,42 @@ namespace ReservationApp
         protected void UpdateCalander(object sender, DayRenderEventArgs e)
         {
             DateTime nextDate;
+                        if (DataSetReserved != null)
+                            {
+                                    foreach (DataRow dr in DataSetReserved.Tables[0].Rows)
+                                    {
+
+                                        nextDate = (DateTime)dr["Date"];
+
+                                        if ((Boolean)dr["Lock"])
+                                        {
+                                            if (nextDate == e.Day.Date && !e.Day.IsOtherMonth)
+                                            {
+                                                e.Day.IsSelectable = false;
+                                                e.Cell.Text = e.Day.DayNumberText + "\nReserved";
+                                                e.Cell.BackColor = System.Drawing.Color.Aqua;
+                                            }
+                                        }
+                                    }
+                                    /*   else
+                                       {
+                                           if (nextDate == e.Day.Date)
+                                           {
+                                               e.Cell.ToolTip = "Booking in Preocess";
+                                               e.Cell.BackColor = System.Drawing.Color.Pink;
+                                           }
+                                       }
+                                       */
+                                }
+
             if (e.Day.IsOtherMonth)
             {
-                e.Cell.Text = string.Empty;  
+                e.Cell.Text = string.Empty;
                 e.Day.IsSelectable = false;
                 e.Cell.BorderStyle = BorderStyle.None;
-               // e.Cell.Text = "";
+                // e.Cell.Text = "";
             }
-            
-            if (DataSetReserved != null)
-            {
-                foreach (DataRow dr in DataSetReserved.Tables[0].Rows)
-                {
 
-                    nextDate = (DateTime)dr["Date"];
-
-                    if ((Boolean)dr["Lock"])
-                    {
-                        if (nextDate == e.Day.Date && !e.Day.IsOtherMonth)
-                        {
-                            e.Day.IsSelectable = false;
-                            e.Cell.Text = e.Day.DayNumberText +"\nReserved";
-                            e.Cell.BackColor = System.Drawing.Color.Aqua;
-                        }
-                    }
-                 /*   else
-                    {
-                        if (nextDate == e.Day.Date)
-                        {
-                            e.Cell.ToolTip = "Booking in Preocess";
-                            e.Cell.BackColor = System.Drawing.Color.Pink;
-                        }
-                    }
-                    */
-                }
-            }
         }
 
 
@@ -110,16 +117,16 @@ namespace ReservationApp
         protected void SelectDateButton(object sender, EventArgs e)
         {
             if (EventCalander.SelectedDate != null && agrred.Checked)
-             {
+            {
                 int x = sendToDataBase();
                 if (x == 1)
-                    LabelDate.Text = "You Reserved on "+selectedDate.ToShortDateString();
+                    LabelDate.Text = "You Reserved on " + selectedDate.ToShortDateString();
 
             }
 
         }
 
-        
+
         void ConnectDB()
         {
 
@@ -142,32 +149,44 @@ namespace ReservationApp
         private int sendToDataBase()
         {
             ConnectDB();
-                try
-                {
-                    cmd.CommandText = "INSERT INTO Reservation(ClientId,Date,Lock) VALUES(@ClientId,@Date,@Lock)";
-                    cmd.Parameters.AddWithValue("@ClientId", 2);
-                    cmd.Parameters.AddWithValue("@Lock", 0);
-                    cmd.Parameters.AddWithValue("@Date",EventCalander.SelectedDate);
-                    cmd.CommandType = CommandType.Text;
+            try
+            {
+                cmd.CommandText = "INSERT INTO Reservation(ClientId,Date,Lock) VALUES(@ClientId,@Date,@Lock)";
+                cmd.Parameters.AddWithValue("@ClientId", 2);
+                cmd.Parameters.AddWithValue("@Lock", 0);
+                cmd.Parameters.AddWithValue("@Date", EventCalander.SelectedDate);
+                cmd.CommandType = CommandType.Text;
 
-                    con.Open();
+                con.Open();
 
-                    return cmd.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {   
                 return 0;
-                }
-                finally
+            }
+            finally
+            {
+                if (con != null)
                 {
-                    if (con != null)
-                    {
-                        con.Close();
-                    }
+                    con.Close();
                 }
-
             }
 
         }
 
+        protected void EventTiming(object sender, EventArgs e)
+        {
+
+            if (night.Checked)
+            {
+                eventTime = 'n';
+            }
+            else if (afternon.Checked)
+            {
+                eventTime = 'a';           
+            }
+        }
+
     }
+}
