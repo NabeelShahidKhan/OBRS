@@ -31,7 +31,7 @@
            GroupName="RadioGroup1" 
            runat="server" AutoPostBack="True" OnCheckedChanged="EventTiming"/>
        </div><div style="margin:10px">
-           <asp:Calendar AutoPostBack="false" ID="EventCalander" runat="server" BackColor="#FFFFCC" CellPadding="10" CssClass="CalanderStyle" DayNameFormat="Full"  Font-Names="Calibri" Font-Size="Medium" Height="400px"  TitleFormat="Month" Width="600px" NextMonthText="&gt;" PrevMonthText="&lt;" OnDayRender="UpdateCalander">
+           <asp:Calendar AutoPostBack="false" ID="EventCalander" runat="server" BackColor="#FFFFCC" CellPadding="10" CssClass="CalanderStyle" DayNameFormat="Full"  Font-Names="Calibri" Font-Size="Medium" Height="400px"  TitleFormat="Month" Width="600px" NextMonthText="&gt;" PrevMonthText="&lt;" OnDayRender="UpdateCalander" OnSelectionChanged="EventCalander_SelectionChanged">
             <DayHeaderStyle  BackColor="#F75133" Font-Bold="True" ForeColor="White" Height="10px" />
             <DayStyle Font-Bold="True" />
             <NextPrevStyle Font-Underline="false" ForeColor="White" />

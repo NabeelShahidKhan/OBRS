@@ -21,21 +21,26 @@ namespace ReservationApp
         SqlConnectionStringBuilder conStringBuilber;
 
         protected void Page_Load(object sender, EventArgs e)
-        {
-             if(!IsPostBack) {
-                selectedDate = EventCalander.TodaysDate;
-                eventTime = 'n';
-                DataSetReserved.Clear();
-                getDatesfromDB();
-                LabelSelectedDate.Text = EventCalander.TodaysDate.ToShortDateString();
-            }else {
-                selectedDate = EventCalander.SelectedDate;
-                getDatesfromDB();
 
-            }
+        {
+            //  if (!IsPostBack)
+            // {
+            //   selectedDate = EventCalander.TodaysDate;
+            chackTime();
+                        //}
+
+            getDatesfromDB();
+
+            //DataSetReserved.Clear();
+
+            //    LabelSelectedDate.Text = EventCalander.TodaysDate.ToShortDateString();
+            //   }else {
+            //     selectedDate = EventCalander.SelectedDate;
+            //      getDatesfromDB();
+
+            //   }
 
         }
-
      
         /*
         private void chackSelectedDate()
@@ -91,16 +96,11 @@ namespace ReservationApp
                                             }
                                         }
                                     }
-                                    /*   else
-                                       {
-                                           if (nextDate == e.Day.Date)
-                                           {
-                                               e.Cell.ToolTip = "Booking in Preocess";
-                                               e.Cell.BackColor = System.Drawing.Color.Pink;
-                                           }
-                                       }
-                                       */
                                 }
+                               // else {
+                                 //       eventTime = 'n';
+                                   //     getDatesfromDB();
+                                     // }
 
             if (e.Day.IsOtherMonth)
             {
@@ -111,8 +111,6 @@ namespace ReservationApp
             }
 
         }
-
-
 
         protected void SelectDateButton(object sender, EventArgs e)
         {
@@ -125,7 +123,7 @@ namespace ReservationApp
             }
 
         }
-
+        
 
         void ConnectDB()
         {
@@ -151,9 +149,10 @@ namespace ReservationApp
             ConnectDB();
             try
             {
-                cmd.CommandText = "INSERT INTO Reservation(ClientId,Date,Lock) VALUES(@ClientId,@Date,@Lock)";
+                cmd.CommandText = "INSERT INTO Reservation(ClientId,Date,Lock,Time) VALUES(@ClientId,@Date,@Lock,@time)";
                 cmd.Parameters.AddWithValue("@ClientId", 2);
                 cmd.Parameters.AddWithValue("@Lock", 0);
+                cmd.Parameters.AddWithValue("@Time", eventTime);
                 cmd.Parameters.AddWithValue("@Date", EventCalander.SelectedDate);
                 cmd.CommandType = CommandType.Text;
 
@@ -177,16 +176,23 @@ namespace ReservationApp
 
         protected void EventTiming(object sender, EventArgs e)
         {
+            chackTime();
+        }
 
+        void chackTime() {
             if (night.Checked)
             {
                 eventTime = 'n';
             }
             else if (afternon.Checked)
             {
-                eventTime = 'a';           
+                eventTime = 'a';
             }
         }
 
+        protected void EventCalander_SelectionChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

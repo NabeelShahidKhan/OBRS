@@ -97,6 +97,7 @@
     <Content Include="asserts\backPaper.jpg" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\todayStyle.css" />
+    <Content Include="FoodMenu.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="DateSelection.aspx.designer.cs">
       <DependentUpon>DateSelection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FoodMenu.aspx.cs">
+      <DependentUpon>FoodMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FoodMenu.aspx.designer.cs">
+      <DependentUpon>FoodMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReservationForm.aspx.cs">
