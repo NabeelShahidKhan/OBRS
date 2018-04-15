@@ -118,7 +118,7 @@ namespace ReservationApp
             {
                 int x = sendToDataBase();
                 if (x == 1)
-                    LabelDate.Text = "You Reserved on " + selectedDate.ToShortDateString();
+                    LabelDate.Text = "You Reserved on " + EventCalander.SelectedDate.ToShortDateString();
 
             }
 
@@ -188,11 +188,6 @@ namespace ReservationApp
             {
                 eventTime = 'a';
             }
-        }
-
-        protected void EventCalander_SelectionChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }

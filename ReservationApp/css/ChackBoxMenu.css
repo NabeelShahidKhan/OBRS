@@ -1,0 +1,8 @@
+﻿.cd label{
+font-size:larger;
+color:white;
+    margin-left:10px;
+}
+body {
+    background-image: url('../asserts/backPaper.jpg');
+}

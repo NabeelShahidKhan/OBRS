@@ -15,6 +15,8 @@
 </head>
 <body >
     <form id="form1" runat="server">
+    
+    
     <div style="margin-left:auto; margin-right:auto; width:600px;">
      <div style="width:100%; height:auto; color:white; text-align:center;font-family:Calibri; font-size:50px; padding:1px;margin:2px" >Calendar Events</div>
       <div    class="container" style="color:white">
@@ -31,7 +33,10 @@
            GroupName="RadioGroup1" 
            runat="server" AutoPostBack="True" OnCheckedChanged="EventTiming"/>
        </div><div style="margin:10px">
-           <asp:Calendar AutoPostBack="false" ID="EventCalander" runat="server" BackColor="#FFFFCC" CellPadding="10" CssClass="CalanderStyle" DayNameFormat="Full"  Font-Names="Calibri" Font-Size="Medium" Height="400px"  TitleFormat="Month" Width="600px" NextMonthText="&gt;" PrevMonthText="&lt;" OnDayRender="UpdateCalander" OnSelectionChanged="EventCalander_SelectionChanged">
+           
+           
+           
+           <asp:Calendar AutoPostBack="false" ID="EventCalander" Font-Underline="false" runat="server" BackColor="#FFFFCC" CellPadding="10" CssClass="CalanderStyle" DayNameFormat="Full"  Font-Names="Calibri" Font-Size="Medium" Height="400px"  TitleFormat="Month" Width="600px" NextMonthText="&gt;" PrevMonthText="&lt;" OnDayRender="UpdateCalander">
             <DayHeaderStyle  BackColor="#F75133" Font-Bold="True" ForeColor="White" Height="10px" />
             <DayStyle Font-Bold="True" />
             <NextPrevStyle Font-Underline="false" ForeColor="White" />
@@ -40,6 +45,9 @@
             <TitleStyle BackColor="Black" Font-Bold="True" Font-Size="XX-Large" ForeColor="White" Height="70px" HorizontalAlign="Center" />
             <TodayDayStyle BorderStyle="Solid" BorderWidth="1px" Font-Underline ="false"/>
         </asp:Calendar>
+        
+        
+        
         </div>
     <div class="container" style="margin:10px">
         <asp:Label ID="LabelDate" runat="server" Text="Date"></asp:Label>
