@@ -94,21 +94,57 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
     <Content Include="asserts\backPaper.jpg" />
     <Content Include="asserts\img_avatar2.png" />
     <Content Include="asserts\img_avatar3.png" />
     <Content Include="css\3-col-portfolio.css" />
+    <Content Include="css\animate.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\ChackBoxMenu.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\owl.theme.css" />
+    <Content Include="css\style.css" />
     <Content Include="css\todayStyle.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="FoodMenu.aspx" />
     <Content Include="FoodPakages.aspx" />
+    <Content Include="images\black_background_fabric-wallpaper-1366x768.jpg" />
+    <Content Include="images\ChickenBiryani.jpg" />
+    <Content Include="images\d.jpg" />
+    <Content Include="images\dess.jpg" />
+    <Content Include="images\keema.jpg" />
+    <Content Include="images\Keema1.jpg" />
+    <Content Include="images\overview-img.jpg" />
+    <Content Include="images\Qeema.jpg" />
+    <Content Include="images\reg-bg.jpg" />
+    <Content Include="images\Salad.jpg" />
+    <Content Include="images\tandoor.jpg" />
+    <Content Include="images\WhatsApp Image 2018-03-29 at 11.56.37 AM %281%29.jpeg" />
+    <Content Include="index.html" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\custom.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.parallax.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\smoothscroll.js" />
+    <Content Include="js\wow.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="scripts\bootstrap.bundle.min.js" />
     <Content Include="Site1.Master" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

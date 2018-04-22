@@ -27,7 +27,7 @@
 <body>
                 <form id="form1" runat="server">
                 <div class="container row" style="margin:10px;margin-bottom:20px;">
-                <div class="col-8"><h1 style="color:white">Lets make Menu Togather</h1></div>
+                <div class="col-8"><h1 style="color:white">Lets make Menu Toghter</h1></div>
                  <div class="col-3">
              <asp:Button ID="submitBtn" runat="server"  Text="Lets Go" CssClass="btn btn-success w-75" OnClick="submitBtn_Click"/>
             </div>

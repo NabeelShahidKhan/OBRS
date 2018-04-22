@@ -41,7 +41,7 @@ namespace ReservationApp
                     using (SqlConnection con = new SqlConnection("Data Source =.; Initial Catalog = BRsystemDb; Integrated Security = True"))
                     {
                         con.Open();
-                        SqlCommand cmd = new SqlCommand("INSERT INTO incudedfood (MenuID,FoodID) VALUES( 9," +food.Value + ")", con);
+                        SqlCommand cmd = new SqlCommand("INSERT INTO incudedfood (MenuID,FoodID) VALUES( 19," +food.Value + ")", con);
                         cmd.ExecuteNonQuery();
                     }
 
