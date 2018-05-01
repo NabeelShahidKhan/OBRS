@@ -4,17 +4,72 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <title>Al Yousuf Banquet</title>
+    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+    <!--<img src="favicon.ico" />-->
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">-->
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/owl.theme.css"/>
+    <link rel="stylesheet" href="css/owl.carousel.css"/>
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'/>
+
+    <link href="css/CalanderStyle.css" rel="stylesheet" />
+<asp:ContentPlaceHolder ID="Masterhead" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+<body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
+
+    <!-- =========================
+         NAVIGATION LINKS
+    ============================== -->
+    <div class="navbar " role="navigation">
+        <div class="container">
+
+            <!-- navbar header -->
+            <div class="navbar-header">
+                <h1 class="navbar-brand">Al Yousuf Banquet</h1  >
+                <h3 class="navbar-brand" style="float:right">Reservation Calander</h3>
+           
+            </div>
+
+                
+      <!--      <div class="collapse navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#intro" class="smoothScroll">Intro</a></li>
+                    <li><a href="#overview" class="smoothScroll">About</a></li>
+                    <li><a href="#speakers" class="smoothScroll">Menu</a></li>
+                    <!--<li><a href="#program" class="smoothScroll">Programs</a></li>-->
+                 <!--   <li><a href="#register" class="smoothScroll">Contact</a></li>
+                    <li><a href="#faq" class="smoothScroll">fAQ</a></li>
+                    <li><a href="#sponsors" class="smoothScroll">Reservation</a></li>
+                    <!--<li><a href="#contact" class="smoothScroll">Contact</a></li>-->
+             <!--   </ul>
+
+            </div>
+            -->
+        </div>
+ 
+        </div>
+ 
+
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
-    </div>
-    </form>
+  
 </body>
 </html>

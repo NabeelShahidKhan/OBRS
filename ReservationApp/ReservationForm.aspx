@@ -5,138 +5,91 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+       <link href="css/style.css" rel="stylesheet" />
+
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/owl.theme.css"/>
+    <link rel="stylesheet" href="css/owl.carousel.css"/>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+
+  
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    <div class="container" style=" display:none;" id="reservationDiv" ">
-
-    <form class="well form-horizontal container" action=" " method="post"  style="width:50%; margin-left:auto; margin-right:auto;" id="contact_form"/>
-<fieldset>
-
-<!-- Form Name -->
-<legend><center><h2><b>Registration Form</b></h2></center></legend><br>
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label">First Name</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="first_name" placeholder="First Name" class="form-control"  type="text"/>
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Last Name</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="last_name" placeholder="Last Name" class="form-control"  type="text"/>
-    </div>
-  </div>
-</div>
-
-  <div class="form-group"> 
-  <label class="col-md-4 control-label">Department / Office</label>
-    <div class="col-md-4 selectContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-    <select name="department" class="form-control selectpicker">
-      <option value="">Select your Department/Office</option>
-      <option>Department of Engineering</option>
-      <option>Department of Agriculture</option>
-      <option >Accounting Office</option>
-      <option >Tresurer's Office</option>
-      <option >MPDC</option>
-      <option >MCTC</option>
-      <option >MCR</option>
-      <option >Mayor's Office</option>
-      <option >Tourism Office</option>
-    </select>
-  </div>
-</div>
-</div>
-  
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Username</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="user_name" placeholder="Username" class="form-control"  type="text"/>
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Password</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="user_password" placeholder="Password" class="form-control"  type="password"/>
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Confirm Password</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="confirm_password" placeholder="Confirm Password" class="form-control"  type="password"/>
-    </div>
-  </div>
-</div>
-
-<!-- Text input-->
-       <div class="form-group">
-  <label class="col-md-4 control-label">E-Mail</label>  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <input name="email" placeholder="E-Mail Address" class="form-control"  type="text"/>
-    </div>
-  </div>
-</div>
-
-
-<!-- Text input-->
-       
-<div class="form-group">
-  <label class="col-md-4 control-label">Contact No.</label>  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-  <input name="contact_no" placeholder="(639)" class="form-control" type="text"/>
-    </div>
-  </div>
-</div>
-<!-- Select Basic -->
-<!-- Success message -->
-<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label"></label>
-  <div class="col-md-4"><br>
-  <button type="submit" class="btn btn-warning" >SUBMIT<span class="glyphicon glyphicon-send"></span></button>
-  </div>
-</div>
-
-</fieldset>
-
-</div>
-   
-    </div>
+    
+<div class="container">
+    <h1 class="well">Registration Form</h1>
+	<div class="col-lg-12 well">
+	<div class="row">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>First Name</label>
+  								<!--<input type="text" placeholder="Enter First Name Here.." class="form-control"/>-->
+                                <asp:TextBox ID="firstName" type="text" placeholder="Enter First Name Here.." class="form-control" runat="server"></asp:TextBox>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Last Name</label>
+								<!--<input type="text" placeholder="Enter Last Name Here.." class="form-control"/>-->
+                                <asp:TextBox  type="text" placeholder="Enter Last Name Here.." class="form-control" ID="lastName" runat="server"></asp:TextBox>
+							</div>
+						</div>		
+                            <div class="row">
+						<div class="col-sm-8 form-group">
+							<label>Address</label>
+							<!--<textarea placeholder="Enter Address Here.." rows="3" class="form-control"></textarea>-->
+                             <asp:TextBox  placeholder="Enter Address Here.." rows="3" class="form-control" ID="address" runat="server"></asp:TextBox>
+						</div>
+                    	<div class="col-sm-4 form-group">
+								<label>City</label>
+								<!--<input type="text" placeholder="Enter State Name Here.." class="form-control"/>-->
+						    	<asp:TextBox  type="text" placeholder="Enter State Name Here.." class="form-control" ID="City" runat="server"></asp:TextBox>
+							</div>	
+                    
+                        </div>
+					
+                        <div class="row">
+					<div class="col-sm-4 form-group">
+						<label>Phone Number</label>
+						<!--<input type="text" placeholder="Enter Phone Number Here.." class="form-control"/>-->
+                                <asp:TextBox  type="text" placeholder="Enter Phone Number Here.." class="form-control" ID="phoneNo" runat="server"></asp:TextBox>
+					</div>		
+					<div class="col-sm-4 form-group">
+						<label>Mobile Number</label>
+						<!--<input type="text" placeholder="Enter Mobile Number Here.." class="form-control"/>-->
+                          <asp:TextBox  type="text" placeholder="Enter Mobile Number Here.." class="form-control" ID="mobileNo" runat="server"></asp:TextBox>
+					</div>		
+                    </div>
+				        <div class="row">			
+                        <div class="col-sm-4 form-group">
+								<label>N.I.C</label>
+								<!--<input type="text" placeholder="Enter State Name Here.." class="form-control"/>-->
+						    	<asp:TextBox  type="text" placeholder="Enter N.I.C Here.." class="form-control" ID="NIC" runat="server"></asp:TextBox>
+							</div>
+                            </div>
+                    
+                    <div class="row">
+                	<div class="col-sm-8 form-group">
+						<label>Email Address</label>
+						<!--<input type="text" placeholder="Enter Email Address Here.." class="form-control"/>-->
+                        <asp:TextBox  type="text" placeholder="Enter Email Address Here.." class="form-control" ID="Email" runat="server"></asp:TextBox>
+                    </div>	
+                    </div>
+	                   
+                           <asp:Button ID="SubmitButton" class="btn btn-lg btn-info" runat="server" Text="Submit" OnClick="SubmitButton_Click" />
+                       			
+					</div>
+				</div>
+	</div>
+	</div>
     </form>
 </body>
 </html>
